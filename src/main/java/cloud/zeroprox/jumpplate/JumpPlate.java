@@ -50,7 +50,7 @@ public class JumpPlate {
     public void onMove(MoveEntityEvent event) {
         if (event.getTargetEntity() instanceof Player) {
             Player player = (Player) event.getTargetEntity();
-            Location feet = event.getToTransform().getLocation().add(0, 0, 0);
+            Location feet = event.getToTransform().getLocation();
             if (feet.getBlockType().equals(BlockTypes.STONE_PRESSURE_PLATE)) {
                 Location signLocation = feet.add(0, -2, 0);
                 if (signLocation.getTileEntity().isPresent()) {
@@ -70,11 +70,9 @@ public class JumpPlate {
     @Listener
     public void onSign(ChangeSignEvent event) {
         if (event.getText().lines().get(0).toPlain().equalsIgnoreCase("[JumpPlate]")) {
-            System.out.println(event.getCause());
             Optional<Player> player = event.getCause().first(Player.class);
             if (player.isPresent()) {
                 if (player.get().hasPermission("jumpplates.create")) {
-                    System.out.println(event.getText().lines().get(1).toPlain().replaceAll("[^\\d.]", ""));
                     if (event.getText().lines().get(1).toPlain().replaceAll("[^\\d.]", "").length() < 1) {
                         player.get().sendMessage(Text.of(TextColors.RED, "Line 2 needs the strength (number)"));
                         return;
