@@ -80,7 +80,7 @@ public class JumpPlate {
                         return;
                     }
                     if (event.getText().lines().get(2).toPlain().replaceAll("[^\\d.]", "").length() < 1) {
-                        player.get().sendMessage(Text.of(TextColors.RED, "Line 3 needs a hight (number)"));
+                        player.get().sendMessage(Text.of(TextColors.RED, "Line 3 needs a height (number)"));
                         return;
                     }
                     player.get().sendMessage(Text.of(TextColors.GREEN, "You created a jump sign."));
