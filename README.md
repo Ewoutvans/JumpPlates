@@ -16,4 +16,4 @@ https://youtu.be/CTDB_Ld6-g0
 5. Add on line 3 the height `2.3`
 
 ## Permissions
-- `jumpplates.reate` to create a jumpplate sign
+- `jumpplates.create` to create a jumpplate sign
